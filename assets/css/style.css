@@ -1,0 +1,835 @@
+
+:root{
+  --white: #fff;
+  --black: #000;
+  --fade: #0c0c0c;
+  --fade2: #1a1a1a;
+  --gray : #c5c5c5;
+  --blue: rgb(39,104,254);
+  --nile: rgb(100,100,255);
+}
+
+
+html{
+  scroll-behavior: smooth;
+  background-color: var(--black);
+}
+
+
+body{
+  width: 100vw;
+  height: fit-content;
+  min-height: 50vh;
+  margin: 0px;
+  background-color: transparent;
+  color: var(--white);
+  overflow-y: auto;
+  overflow-x: hidden;
+  line-height: 1.8;
+  word-break: break-word;
+  direction: ltr;
+  scroll-behavior: smooth;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Noto Sans';
+  animation: whole_thing 1.8s alternate ease-in-out 1;
+}
+@keyframes whole_thing {
+  0%{
+    margin-top: -40px;
+    opacity: 0;
+    /* filter: blur(40px); */
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.hidden_elements{
+  position: absolute;
+  display: none;
+}
+
+
+
+
+/*-------------------------------------------------------------*/
+
+
+
+.header{
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 1440px;
+  height: 90px;
+  padding: 0px;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.header .nav{
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 90px;
+  padding: 10px 15px;
+  border-radius: 0px;
+  background-color: transparent;
+}
+.header .nav .logo{
+  position: relative;
+  display: block;
+  width: 70px;
+  min-width: 70px;
+  height: 70px;
+  padding: 0px;
+  margin: 0px;
+  color: var(--white);
+  font-size: 24px;
+  font-weight: bold;
+}
+.header .nav .logo img{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  border-radius: 50%;
+  border: 2px dashed var(--theme-fade-color);
+}
+.header .nav .places{
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  height: fit-content;
+  margin-right: 20px;
+}
+.header .nav .places .place{
+  position: relative;
+  display: block;
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--theme-hint-color);
+  font-size: 15px;
+  font-weight: normal;
+  text-decoration: none;
+  cursor: pointer;
+}
+.header .nav .places .place:hover{
+  color: var(--theme-text-color);
+}
+
+
+
+/*-------------------------------------------------------------*/
+
+a{
+  color: var(--blue);
+  text-decoration: none;
+}
+a.text_shine{
+  text-shadow: 0px 0px 10px var(--blue);
+}
+
+.main{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  height: fit-content;
+  padding: 10px;
+  margin: 0px;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sheet{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  min-height: 100vh;
+  padding: 20px 0px;
+}
+.sheet.hidden{
+  display: none;
+}
+.sheet:first-of-type{
+  height: calc(100vh - 140px);
+}
+.sheet .dot{
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  filter: blur(10px);
+  box-shadow: 0px 0px 300px 100px var(--gray);
+}
+.min_title{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: fit-content;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Golos Text";
+  animation: min_title .3s linear 2;
+  animation-delay: 2s;
+}
+@keyframes min_title {
+  0%{
+    transform: rotate(0deg);
+  }
+  25%{
+    transform: rotate(-2deg);
+  }
+  50%{
+    transform: rotate(0deg);
+  }
+  75%{
+    transform: rotate(2deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+.min_title a{
+  display: inline-block;
+  font-family: "Golos Text";
+  animation: min_title_a .5s linear 1;
+  animation-delay: 2.7s;
+}
+@keyframes min_title_a {
+  50%{
+    margin-left: 10px;
+    margin-right: 10px;
+    transform: scale(1.4);
+  }
+}
+.top_title{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: fit-content;
+  color: var(--white);
+  font-size: 68px;
+  font-weight: bold;
+  line-height: 80px;
+  text-align: center;
+  text-transform: capitalize;
+  font-family: "Golos Text";
+}
+.top_description{
+  position: relative;
+  display: block;
+  width: fit-content;
+  max-width: 600px;
+  height: fit-content;
+  padding: 0px 40px;
+  color: var(--gray);
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 24px;
+  text-align: center;
+  text-transform: none;
+}
+.top_contacts{
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: fit-content;
+  padding: 0px 20px;
+  margin-top: 50px;
+}
+.top_contacts a{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  height: fit-content;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 14px;
+  font-weight: normal;
+  overflow: hidden;
+  transition: all 1s;
+}
+.top_contacts a:nth-child(1){
+  animation: top_contact_1 8s linear infinite;
+}
+@keyframes top_contact_1 {
+  48%{
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(-2deg);
+  }
+  52%{
+    transform: rotate(2deg);
+  }
+  54%{
+    transform: rotate(-2deg);
+  }
+  56%{
+    transform: rotate(2deg);
+  }
+  58%{
+    transform: rotate(0deg);
+  }
+  60%{
+    transform: scale(1.1);
+  }
+  65%{
+    transform: scale(1);
+  }
+}
+.top_contacts a:nth-child(2){
+  background-color: var(--fade);
+  color: var(--white);
+}
+.top_contacts a svg{
+  width: 22px;
+  height: 22px;
+  fill: var(--black);
+}
+.top_contacts a:nth-child(2) svg{
+  fill: var(--white);
+}
+.top_stats{
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 90%;
+  height: fit-content;
+  padding: 10px 10px;
+  margin-top: 80px;
+  border-top: 1px solid var(--fade);
+  border-bottom: 1px solid var(--fade);
+}
+.top_stats .stat{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  padding: 5px;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+.top_stats .stat .t{
+  color: var(--white);
+  font-size: 24px;
+  font-weight: 600;
+}
+.top_stats .stat .d{
+  color: var(--gray);
+  font-size: 12px;
+  font-weight: normal;
+}
+.top_stats .splitter{
+  width: 1px;
+  min-width: 1px;
+  height: 60px;
+  background-color: var(--fade);
+}
+
+#next{
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  transform: translate(-50%, 0%);
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity .2s;
+  animation: next 1s forwards ease-in-out infinite;
+}
+#next.hidden{
+  opacity: 0;
+}
+@keyframes next {
+  0%{
+    bottom: 10px;
+  }
+  50%{
+    bottom: 20px;
+  }
+  100%{
+    bottom: 10px;
+  }
+}
+#next svg{
+  width: 40px;
+  height: 40px;
+  fill: var(--white);
+}
+
+
+
+.title_text{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: fit-content;
+  padding: 10px;
+  color: var(--white);
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 68px;
+  text-align: center;
+  text-transform: capitalize;
+  font-family: "Golos Text";
+}
+
+.smart_grid{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  justify-content: start;
+  align-items: stretch;
+  width: 100%;
+  height: fit-content;
+  padding: 10px;
+}
+.project{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 10px;
+  background-color: var(--fade);
+  overflow: hidden;
+}
+.project svg{
+  position: relative;
+  width: 40%;
+  height: auto;
+  fill: var(--white);
+}
+.project .hlayout{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  height: fit-content;
+}
+.project .t{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: fit-content;
+  padding: 10px;
+  color: var(--white);
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 28px;
+  text-align: left;
+  text-transform: capitalize;
+  font-family: "Golos Text";
+}
+.project .d{
+  position: relative;
+  display: block;
+  width: 80%;
+  height: fit-content;
+  padding: 10px;
+  color: var(--gray);
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 24px;
+  text-align: left;
+}
+
+
+.skills{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  max-width: 770px;
+  height: fit-content;
+  padding: 10px;
+  margin-top: 20px;
+  border-top: 1px solid var(--fade);
+  border-bottom: 1px solid var(--fade);
+}
+.skills img{
+  width: auto;
+  height: 30px;
+  border-radius: 4px;
+}
+.skills a{
+  line-height: 1;
+  animation: none;
+}
+.skills .animated_skill{
+  animation: skills_pop .2s alternate 1;
+  animation-delay: 2s;
+}
+.skills .animated_skill:nth-child(2){
+  animation-delay: 2.2s;
+}
+.skills .animated_skill:nth-child(3){
+  animation-delay: 2.4s;
+}
+.skills .animated_skill:nth-child(4){
+  animation-delay: 2.6s;
+}
+.skills .animated_skill:nth-child(5){
+  animation-delay: 2.8s;
+}
+.skills .animated_skill:nth-child(6){
+  animation-delay: 3s;
+}
+.skills .animated_skill:nth-child(7){
+  animation-delay: 3.2s;
+}
+.skills .animated_skill:nth-child(8){
+  animation-delay: 3.4s;
+}
+.skills .animated_skill:nth-child(9){
+  animation-delay: 3.6s;
+}
+.skills .animated_skill:nth-child(10){
+  animation-delay: 3.8s;
+}
+.skills .animated_skill:nth-child(11){
+  animation-delay: 4s;
+}
+.skills .animated_skill:nth-child(12){
+  animation-delay: 4.2s;
+}
+.skills .animated_skill:nth-child(13){
+  animation-delay: 4.4s;
+}
+@keyframes skills_pop {
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.1);
+    box-shadow: 0px 0px 1px var(--black);
+    z-index: 2;
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+.box{
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  max-width: 900px;
+  height: fit-content;
+  min-height: 20vh;
+  padding: 16px;
+  margin-top: 50px;
+  border-radius: 12px;
+  background-color: var(--fade);
+  overflow: hidden;
+}
+.box .lottie_player{
+  position: relative;
+  width: 200px;
+  min-width: fit-content;
+  height: 200px;
+  margin-top: -20px;
+}
+.box .hlayout{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  height: fit-content;
+}
+.box .t{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: fit-content;
+  padding: 10px;
+  color: var(--white);
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 28px;
+  text-align: left;
+  text-transform: capitalize;
+  font-family: "Golos Text";
+}
+.box .d{
+  position: relative;
+  display: block;
+  width: 80%;
+  height: fit-content;
+  padding: 10px;
+  color: var(--gray);
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 24px;
+  text-align: left;
+}
+
+.text_frame{
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: fit-content;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: transparent;
+}
+.text_frame h1{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: fit-content;
+  padding: 10px;
+  margin: 0px;
+  color: var(--white);
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 28px;
+  text-align: left;
+  text-transform: capitalize;
+  font-family: "Golos Text";
+}
+.text_frame p{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: fit-content;
+  padding: 20px;
+  margin: 0px;
+  color: var(--gray);
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 24px;
+  text-align: left;
+}
+
+
+.footer{
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 30px;
+  width: 96%;
+  max-width: 1200px;
+  height: fit-content;
+  padding: 20px 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  border-radius: 12px;
+  background-color: var(--fade);
+}
+.footer .lottie_player{
+  position: relative;
+  width: 130px;
+  min-width: fit-content;
+  height: 130px;
+}
+.footer .hlayout{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  height: fit-content;
+}
+.footer .t{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: fit-content;
+  padding: 10px;
+  color: var(--white);
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 28px;
+  text-align: left;
+  text-transform: capitalize;
+  font-family: "Golos Text";
+}
+.footer .d{
+  position: relative;
+  display: block;
+  width: 80%;
+  max-width: 450px;
+  height: fit-content;
+  padding: 10px;
+  color: var(--gray);
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 24px;
+  text-align: left;
+}
+
+
+
+@media (max-width: 1440px){
+  .smart_grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  .top_title{
+    font-size: 48px;
+    line-height: 68px;
+  }
+}
+
+@media (max-width: 940px){
+  .smart_grid{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 740px) {
+  .top_title{
+    font-size: 40px;
+    line-height: 50px;
+  }
+}
+
+@media (max-width: 600px){
+  .top_title{
+    font-size: 36px;
+    line-height: 46px;
+  }
+  .project{
+    align-items: start;
+  }
+  .project .d{
+    width: 100%;
+    text-overflow: ellipsis;
+  }
+}
+@media (max-width: 530px){
+  .top_title{
+    font-size: 30px;
+    line-height: 35px;
+    margin-bottom: 10px;
+  }
+  .box{
+    flex-wrap: wrap;
+  }
+  .lottie_player{
+   width: 100%;
+   height: auto;
+  }
+}
+@media (max-width: 460px){
+  .top_title{
+    font-size: 24px;
+    line-height: 26px;
+    margin-bottom: 10px;
+  }
+  .top_stats{
+    flex-wrap: wrap;
+  }
+  .top_stats .stat{
+    width: calc(50% - 20px);
+  }
+  .top_contacts{
+    flex-wrap: wrap;
+  }
+  .footer{
+    flex-wrap: wrap;
+  }
+  .footer .lottie_player{
+    width: 100%;
+  }
+  .footer .t{
+    text-align: center;
+  }
+  .footer .d{
+    width: 100%;
+    text-align: center;
+  }
+}
+@media (max-width: 380px) {
+  .top_title{
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .top_description{
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
